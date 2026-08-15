@@ -121,3 +121,22 @@ Displays a loading message while the payment order is being created.
 ✅ Payment Callback
 
 The Razorpay Checkout handler receives the payment response after successful payment.
+
+🛠️ Technology Stack
+
+| Technology                  | Purpose                        |
+| --------------------------- | ------------------------------ |
+| **Java 21**                 | Backend programming            |
+| **Spring Boot**             | Backend framework              |
+| **Spring Web MVC**          | REST API development           |
+| **Razorpay Java SDK**       | Razorpay payment integration   |
+| **HTML5**                   | Frontend structure             |
+| **CSS3**                    | UI styling and animations      |
+| **JavaScript**              | Frontend functionality         |
+| **Fetch API**               | Frontend-backend communication |
+| **Razorpay Checkout.js**    | Payment checkout interface     |
+| **Maven**                   | Dependency management          |
+| **Lombok**                  | Java boilerplate reduction     |
+| **Eclipse / IntelliJ IDEA** | Development environment        |
+| **Git**                     | Version control                |
+| **GitHub**                  | Source code hosting            |
