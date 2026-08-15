@@ -62,3 +62,62 @@ Razorpay Checkout
 User Completes Payment
   ↓
 Payment Response
+
+This project demonstrates practical implementation of:
+
+Java backend development
+Spring Boot
+REST API development
+Razorpay payment gateway integration
+JSON request handling
+Frontend-backend communication
+JavaScript Fetch API
+Maven dependency management
+Razorpay Checkout integration
+✨ Key Features
+💳 Razorpay Payment Integration
+
+Integrates the Razorpay Payment Gateway to create payment orders and open the Razorpay Checkout interface.
+
+💰 Dynamic Payment Amount
+
+Users can enter the amount they want to pay through the payment interface.
+
+🚀 Spring Boot REST API
+
+Provides a REST endpoint for creating Razorpay payment orders.
+
+⚡ Fetch API Integration
+
+The frontend communicates with the Spring Boot backend using JavaScript Fetch API.
+
+🔐 Backend Secret Key
+
+The Razorpay secret key is intended to remain on the backend and should not be exposed in frontend JavaScript.
+
+🎨 Modern User Interface
+
+The payment page contains:
+
+Gradient animated background
+Glassmorphism-style payment card
+Animated background elements
+Payment amount input
+Payment button
+Loading indicator
+Feature indicators
+📱 Responsive Interface
+
+The interface is designed using HTML5 and CSS3 and can be adapted for different screen sizes.
+
+⚠️ Amount Validation
+
+The application checks whether the entered amount is valid before creating the payment order.
+
+⏳ Loading Indicator
+
+Displays a loading message while the payment order is being created.
+
+✅ Payment Callback
+
+The Razorpay Checkout handler receives the payment response after successful payment.
