@@ -319,3 +319,366 @@ JavaScript uses the returned order ID to open the Razorpay Checkout interface.
 Step 10 — Complete Payment
 
 The user completes the payment using Razorpay Test Mode.
+
+📁 Project Structure
+
+```
+razorpay-payment-integration/
+│
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/example/razorpay/
+│   │   │       │
+│   │   │       ├── RazorpayApplication.java
+│   │   │       │
+│   │   │       ├── controller/
+│   │   │       │   └── UserController.java
+│   │   │       │
+│   │   │       ├── entity/
+│   │   │       │   └── User.java
+│   │   │       │
+│   │   │       └── service/
+│   │   │           └── UserService.java
+│   │   │
+│   │   └── resources/
+│   │       ├── application.properties
+│   │       └── static/
+│   │           └── index.html
+│   │
+│   └── test/
+│
+├── screenshots/
+│   ├── payment-page.png
+│   ├── amount-entry.png
+│   ├── payment-options.png
+│   ├── payment-confirmation.png
+│   ├── otp-verification.png
+│   ├── test-bank.png
+│   └── payment-success.png
+│
+├── .gitignore
+├── pom.xml
+├── mvnw
+├── mvnw.cmd
+├── HELP.md
+└── README.md
+```
+
+⚙️ Installation & Setup
+Prerequisites
+
+Make sure the following are installed:
+
+Java JDK 21
+Maven
+Git
+Eclipse / Spring Tool Suite / IntelliJ IDEA
+Razorpay Account
+Razorpay Test Mode credentials
+
+
+Clone the Repository
+git clone https://github.com/Madhu-shree-R/razorpay-payment-integration.git
+
+Navigate to the Project
+cd razorpay-payment-integration
+
+Install Dependencies
+
+Using Maven:
+mvn clean install
+
+Or using the Maven Wrapper:
+Windows
+mvnw.cmd clean install
+
+Linux / macOS
+./mvnw clean install
+
+🔐 Razorpay Configuration
+
+This project uses Razorpay Test Mode for payment processing.
+
+You need:
+
+Razorpay Key ID
+Razorpay Key Secret
+⚠️ Security Notice
+
+Never upload your Razorpay Secret Key to GitHub.
+
+Use environment variables instead.
+
+Configure application.properties as:
+
+spring.application.name=razorpay
+razorpay.key.id=${RAZORPAY_KEY_ID}
+razorpay.key.secret=${RAZORPAY_KEY_SECRET}
+server.port=8081
+
+Windows CMD
+set RAZORPAY_KEY_ID=your_key_id
+set RAZORPAY_KEY_SECRET=your_key_secret
+
+Windows PowerShell
+$env:RAZORPAY_KEY_ID="your_key_id"
+$env:RAZORPAY_KEY_SECRET="your_key_secret"
+
+Linux / macOS
+export RAZORPAY_KEY_ID=your_key_id
+export RAZORPAY_KEY_SECRET=your_key_secret
+
+⚙️ Application Configuration
+
+The application runs on port 8081.
+spring.application.name=razorpay
+server.port=8081
+
+The frontend sends the payment request to:
+http://localhost:8081/payments
+
+🔌 API Documentation
+
+Create Payment Order
+
+Endpoint
+POST /payments
+
+Local URL
+http://localhost:8081/payments
+
+Content-Type
+application/json
+
+Request Body
+{
+    "amnt": 500
+}
+
+Example Request Using cURL
+curl -X POST http://localhost:8081/payments \
+-H "Content-Type: application/json" \
+-d "{\"amnt\":500}"
+
+Controller Flow
+```
+POST /payments
+       ↓
+UserController
+       ↓
+UserService
+       ↓
+RazorpayClient
+       ↓
+Razorpay Order
+```
+
+📦 Request and Response
+Request
+
+The frontend sends the payment amount as JSON:
+{
+    "amnt": 500
+}
+
+Processing
+
+The backend receives the amount and creates a Razorpay order.
+
+The amount is converted into paise before sending it to Razorpay.
+
+For example:
+```
+₹500
+  ↓
+500 × 100
+  ↓
+50000 paise
+```
+
+Response
+
+The backend returns the Razorpay order information to the frontend.
+
+The frontend uses the order ID and amount to initialize Razorpay Checkout.
+
+💳 Razorpay Checkout
+
+The frontend initializes Razorpay Checkout using the Razorpay Checkout JavaScript library.
+
+The checkout configuration contains:
+
+Razorpay Key ID
+Payment amount
+Currency
+Razorpay Order ID
+Application name
+Payment description
+Payment handler
+Theme configuration
+
+The Razorpay Checkout interface provides the available payment methods supported by the test environment.
+
+
+🔐 Security
+
+The application follows basic security practices for payment integration.
+
+Secret Key Protection
+
+The Razorpay Secret Key should only be used on the backend.
+
+It should never be placed inside frontend JavaScript.
+
+Environment Variables
+
+Sensitive credentials should be stored using environment variables:
+RAZORPAY_KEY_ID
+RAZORPAY_KEY_SECRET
+
+GitHub Security
+
+Do not commit:
+Razorpay Secret Key
+Production API credentials
+Passwords
+Private tokens
+Personal credentials
+⚠️ This project uses Razorpay Test Mode. Production payment systems require additional security measures, payment signature verification, validation, transaction persistence, and proper error handling.
+
+⚠️ Error Handling
+
+The application handles common payment input errors such as:
+
+Empty payment amount
+Invalid payment amount
+Zero or negative amount
+Payment order creation failure
+Payment request failure
+
+The frontend displays a validation message when an invalid amount is entered.
+The backend handles RazorpayException during order creation.
+
+
+
+🧪 Testing
+
+The application can be tested using:
+
+Postman
+Web Browser
+cURL
+Razorpay Test Mode
+Test Cases:
+```
+| Test Case       | Input              | Expected Result               |
+| --------------- | ------------------ | ----------------------------- |
+| Valid Amount    | `500`              | Razorpay Checkout opens       |
+| Valid Amount    | `1000`             | Razorpay Checkout opens       |
+| Empty Amount    | Empty              | Validation message            |
+| Zero Amount     | `0`                | Validation message            |
+| Negative Amount | `-100`             | Validation message            |
+| Test Payment    | Razorpay Test Mode | Payment flow can be simulated |
+```
+
+▶️ How to Run
+
+Step 1 — Configure Razorpay Credentials
+Set your Razorpay Test Mode credentials using environment variables.
+
+Step 2 — Start the Spring Boot Application
+Using Maven:
+mvn spring-boot:run
+Or on Windows:
+mvnw.cmd spring-boot:run
+
+Step 3 — Open the Application
+The application runs on:
+http://localhost:8081
+
+Step 4 — Enter Payment Amount
+Enter an amount such as:
+500
+
+Step 5 — Click Pay Securely
+Click:
+Pay Securely →
+The application sends the payment request to the Spring Boot backend.
+
+Step 6 — Complete Test Payment
+Razorpay Checkout opens and allows the payment to be simulated using Test Mode.
+
+🔮 Future Improvements
+The following features can be added in future versions:
+🔐 Razorpay payment signature verification
+🗄️ Store payment transactions in MySQL
+👤 User authentication using JWT
+📊 Payment history dashboard
+📧 Payment confirmation emails
+🧾 Generate payment receipts
+📱 Enhanced mobile responsiveness
+🔄 Payment status tracking
+📈 Transaction reporting
+🏗️ DTO-based request and response handling
+🛡️ Improved exception handling
+🗃️ Database-based transaction management
+📋 Payment history and reporting
+
+📚 Learning Outcomes
+Through this project, I gained practical experience with:
+Java 21
+Spring Boot
+Spring MVC
+REST API Development
+Dependency Injection
+Razorpay Java SDK
+Razorpay Checkout
+Payment Order Creation
+JavaScript Fetch API
+JSON Request Handling
+HTML5
+CSS3
+Maven
+Exception Handling
+Postman API Testing
+Environment Variables
+
+🤝 Contributing
+Contributions, suggestions, and improvements are welcome.
+Steps to Contribute
+
+Step 1 : Fork the repository.
+Step 2 : Create a new branch.
+git checkout -b feature/new-feature
+Step 3 : Make your changes.
+Step 4 : Commit your changes.
+git commit -m "Add new feature"
+Step 5 : Push the branch.
+git push origin feature/new-feature
+Step 6 : Create a Pull Request.
+
+
+👩‍💻 Author
+Madhushree R
+
+MCA Graduate | Java Developer | Full Stack Developer
+Technical Skills
+Core Java
+Advanced Java
+Spring Boot
+REST API
+MySQL
+HTML5
+CSS3
+JavaScript
+Git
+GitHub
+
+📄 License
+This project is created for educational and portfolio purposes.
+
+⭐ Support
+If you find this project useful, consider giving the repository a ⭐ on GitHub.
+
+Thank you for visiting this project! 🚀
