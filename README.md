@@ -548,7 +548,8 @@ Production API credentials
 Passwords
 Private tokens
 Personal credentials
-⚠️ This project uses Razorpay Test Mode. Production payment systems require additional security measures, payment signature verification, validation, transaction persistence, and proper error handling.
+⚠️ This project uses Razorpay Test Mode. Production payment systems require additional security measures, payment signature verification, validation,
+ transaction persistence, and proper error handling.
 
 ⚠️ Error Handling
 
