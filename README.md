@@ -365,6 +365,7 @@ razorpay-payment-integration/
 └── README.md
 ```
 
+```
 ⚙️ Installation & Setup
 Prerequisites
 
@@ -463,6 +464,7 @@ curl -X POST http://localhost:8081/payments \
 
 Controller Flow
 ```
+```
 POST /payments
        ↓
 UserController
@@ -473,7 +475,7 @@ RazorpayClient
        ↓
 Razorpay Order
 ```
-
+```
 📦 Request and Response
 Request
 
@@ -490,13 +492,14 @@ The amount is converted into paise before sending it to Razorpay.
 
 For example:
 ```
+```
 ₹500
   ↓
 500 × 100
   ↓
 50000 paise
 ```
-
+```
 Response
 
 The backend returns the Razorpay order information to the frontend.
@@ -572,6 +575,7 @@ cURL
 Razorpay Test Mode
 Test Cases:
 ```
+```
 | Test Case       | Input              | Expected Result               |
 | --------------- | ------------------ | ----------------------------- |
 | Valid Amount    | `500`              | Razorpay Checkout opens       |
@@ -581,7 +585,7 @@ Test Cases:
 | Negative Amount | `-100`             | Validation message            |
 | Test Payment    | Razorpay Test Mode | Payment flow can be simulated |
 ```
-
+```
 ▶️ How to Run
 
 Step 1 — Configure Razorpay Credentials
@@ -682,3 +686,4 @@ This project is created for educational and portfolio purposes.
 If you find this project useful, consider giving the repository a ⭐ on GitHub.
 
 Thank you for visiting this project! 🚀
+```
