@@ -140,59 +140,75 @@ The Razorpay Checkout handler receives the payment response after successful pay
 | **Eclipse / IntelliJ IDEA** | Development environment        |
 | **Git**                     | Version control                |
 | **GitHub**                  | Source code hosting            |
-
+```
 ## 🖥️ Screenshots / Demo
 
-### 💳 Payment Landing Page
+The following screenshots demonstrate the complete payment flow from entering the amount to successful payment using the Razorpay Test Mode environment.
 
-The application provides a modern and responsive payment interface where users can enter the amount they want to pay.
+### 💳 1. Payment Landing Page
 
-![Payment Landing Page](./screenshots/payment-page.png)
+Users can enter the amount they want to pay and initiate the payment process.
 
----
-
-### 💰 Entering Payment Amount
-
-Users can enter the desired payment amount before initiating the transaction.
-
-![Entering Payment Amount](./screenshots/amount-entry.png)
+<p align="center">
+  <img src="./screenshots/payment-page.png" alt="Payment Landing Page" width="800">
+</p>
 
 ---
 
-### 💳 Razorpay Payment Options
+### 💰 2. Entering Payment Amount
 
-After creating the payment order, the Razorpay Checkout interface displays the available payment methods.
+The user enters the required payment amount before starting the transaction.
 
-![Razorpay Payment Options](./screenshots/payment-options.png)
-
----
-
-### 🔄 Payment Confirmation
-
-Razorpay processes and confirms the payment request.
-
-![Payment Confirmation](./screenshots/payment-confirmation.png)
+<p align="center">
+  <img src="./screenshots/amount-entry.png" alt="Entering Payment Amount" width="800">
+</p>
 
 ---
 
-### 🔐 OTP Verification
+### 💳 3. Razorpay Payment Options
 
-The Razorpay test environment provides OTP verification during the payment flow.
+After the backend creates the Razorpay order, the Razorpay Checkout interface displays the available payment methods.
 
-![OTP Verification](./screenshots/otp-verification.png)
-
----
-
-### 🏦 Razorpay Test Payment Gateway
-
-The Razorpay Test Mode environment allows the payment to be simulated using the available test options.
-
-![Razorpay Test Payment Gateway](./screenshots/test-bank.png)
+<p align="center">
+  <img src="./screenshots/payment-options.png" alt="Razorpay Payment Options" width="800">
+</p>
 
 ---
 
-### ✅ Payment Successful
+### 🔄 4. Payment Confirmation
 
-After successful completion of the test payment, Razorpay displays the payment confirmation.
+Razorpay processes the payment request and displays the confirmation screen.
 
-![Payment Successful](./screenshots/payment-success.png)
+<p align="center">
+  <img src="./screenshots/payment-confirmation.png" alt="Payment Confirmation" width="800">
+</p>
+
+---
+
+### 🔐 5. OTP Verification
+
+The Razorpay Test Mode payment flow displays OTP verification before completing the transaction.
+
+<p align="center">
+  <img src="./screenshots/otp-verification.png" alt="OTP Verification" width="800">
+</p>
+
+---
+
+### 🏦 6. Razorpay Test Payment Gateway
+
+The Razorpay Test Mode gateway allows the payment to be simulated using the available test options.
+
+<p align="center">
+  <img src="./screenshots/test-bank.png" alt="Razorpay Test Payment Gateway" width="800">
+</p>
+
+---
+
+### ✅ 7. Payment Successful
+
+After successful completion of the test payment, Razorpay displays the payment success confirmation.
+
+<p align="center">
+  <img src="./screenshots/payment-success.png" alt="Payment Successful" width="800">
+</p>
