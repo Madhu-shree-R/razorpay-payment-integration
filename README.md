@@ -214,6 +214,8 @@ After successful completion of the test payment, Razorpay displays the payment s
 </p>
 
 🏗️ Architecture Overview
+
+```
                     User
                       │
                       ▼
@@ -238,10 +240,11 @@ After successful completion of the test payment, Razorpay displays the payment s
                       │
                       ▼
               Payment Response
+```
 Backend Architecture
 
 The backend follows a simple layered structure:
-
+```
   Controller
       ↓
   Service
@@ -250,6 +253,7 @@ The backend follows a simple layered structure:
       ↓
   Razorpay API
 
+```
 Components
 
 Controller
