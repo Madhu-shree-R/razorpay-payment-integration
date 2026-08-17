@@ -242,13 +242,14 @@ Backend Architecture
 
 The backend follows a simple layered structure:
 
-Controller
-    ↓
-Service
-    ↓
-Razorpay SDK
-    ↓
-Razorpay API
+  Controller
+      ↓
+  Service
+      ↓
+  Razorpay SDK
+      ↓
+  Razorpay API
+
 Components
 
 Controller
@@ -268,6 +269,7 @@ Frontend
 Provides the user interface and communicates with the backend using Fetch API.
 
 💰 How Payment Processing Works
+
 Step 1 — Enter Amount
 
 The user enters the amount in the payment interface.
