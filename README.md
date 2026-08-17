@@ -212,3 +212,104 @@ After successful completion of the test payment, Razorpay displays the payment s
 <p align="center">
   <img src="./screenshots/payment-success.png" alt="Payment Successful" width="800">
 </p>
+
+🏗️ Architecture Overview
+                    User
+                      │
+                      ▼
+            HTML + CSS + JavaScript
+                      │
+                  Fetch API
+                      │
+                      ▼
+             Spring Boot Controller
+                      │
+                      ▼
+                 UserService
+                      │
+                      ▼
+             Razorpay Java SDK
+                      │
+                      ▼
+               Razorpay API
+                      │
+                      ▼
+             Razorpay Checkout
+                      │
+                      ▼
+              Payment Response
+Backend Architecture
+
+The backend follows a simple layered structure:
+
+Controller
+    ↓
+Service
+    ↓
+Razorpay SDK
+    ↓
+Razorpay API
+Components
+
+Controller
+
+Handles incoming HTTP requests and passes the payment amount to the service layer.
+
+Service
+
+Creates the Razorpay client and generates the payment order.
+
+Entity
+
+Contains the payment amount received from the frontend.
+
+Frontend
+
+Provides the user interface and communicates with the backend using Fetch API.
+
+💰 How Payment Processing Works
+Step 1 — Enter Amount
+
+The user enters the amount in the payment interface.
+
+Step 2 — Frontend Validation
+
+JavaScript checks whether the entered amount is greater than zero.
+
+Step 3 — API Request
+
+The frontend sends a POST request to:
+
+/payments
+
+with the payment amount.
+
+Step 4 — Spring Boot Controller
+
+The UserController receives the request and extracts the payment amount.
+
+Step 5 — Service Layer
+
+The controller calls UserService.
+
+Step 6 — Razorpay Client
+
+The service creates a RazorpayClient using the Razorpay Key ID and Secret Key.
+
+Step 7 — Create Order
+
+The Razorpay Java SDK creates a payment order.
+
+The amount is converted from rupees to paise because Razorpay expects the amount in the smallest currency unit.
+
+Step 8 — Return Order
+
+The Razorpay order information is returned to the frontend.
+
+Step 9 — Open Checkout
+
+JavaScript uses the returned order ID to open the Razorpay Checkout interface.
+
+Step 10 — Complete Payment
+
+The user completes the payment using Razorpay Test Mode.
